@@ -1,11 +1,13 @@
 # examen-8
 
+# examen-8
+
 Alumnos:
 - Javier Aponte Cáceres
 - Jhanina Alarcón Regalado
 
 POST - /v1/songs/
-![POST - /v1/songs/](https://i.imgur.com/qfxs2eH.png)
+![POST - /v1/songs/](https://i.imgur.com/Gd2EAH2.png)
 GET - /v1/songs/
 ![GET - /v1/songs/](https://i.imgur.com/XgZIxMX.png)
 GET - /v1/songs/:id
