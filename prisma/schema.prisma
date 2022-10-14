@@ -8,8 +8,28 @@ generator client {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  name     String?
-  password String
-  email    String? @unique
+  id        Int        @id @default(autoincrement())
+  name      String?
+  password  String
+  email     String?    @unique
+  playlists Playlist[]
+}
+
+model Song {
+  id       Int    @id @default(autoincrement())
+  name     String
+  artist   String
+  album    String
+  year     Int
+  genre    String
+  duration Int
+  playlists Playlist[]
+}
+
+model Playlist {
+  id       Int    @id @default(autoincrement())
+  name     String
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId Int
+  songs Song[]
 }
