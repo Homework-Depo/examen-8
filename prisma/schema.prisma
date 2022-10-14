@@ -13,17 +13,21 @@ model User {
   password  String
   email     String?    @unique
   playlists Playlist[]
+
+  @@map("users")
 }
 
 model Song {
-  id       Int    @id @default(autoincrement())
-  name     String
-  artist   String
-  album    String
-  year     Int
-  genre    String
-  duration Int
+  id        Int        @id @default(autoincrement())
+  name      String
+  artist    String
+  album     String
+  year      Int
+  genre     String
+  duration  Int
   playlists Playlist[]
+
+  @@map("songs")
 }
 
 model Playlist {
@@ -31,5 +35,7 @@ model Playlist {
   name     String
   author   User   @relation(fields: [authorId], references: [id])
   authorId Int
-  songs Song[]
+  songs    Song[]
+
+  @@map("playlists")
 }

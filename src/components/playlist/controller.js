@@ -4,10 +4,10 @@ const prisma = new PrismaClient();
 
 export const findAll = async (req, res) => {
   try {
-    const songs = await prisma.song.findMany();
+    const playlists = await prisma.playlist.findMany();
     res.json({
       ok: true,
-      data: songs,
+      data: playlists,
     });
   } catch (error) {
     res.json({
@@ -20,14 +20,25 @@ export const findAll = async (req, res) => {
 export const create = async (req, res) => {
   try {
     const { body } = req;
-    const song = await prisma.song.create({
+    const playlist = await prisma.playlist.create({
+      include: {
+        songs: true
+      },
       data: {
-        ...body,
+        name: body.name,
+        author: {
+          connect: {
+            id: body.userId
+          }
+        },
+        songs: {
+          connect: body.songs
+        }
       },
     });
     res.json({
       ok: true,
-      data: song,
+      data: playlist,
     });
   } catch (error) {
     res.json({
@@ -40,14 +51,14 @@ export const create = async (req, res) => {
 export const findById = async (req, res) => {
   try {
     console.log(parseInt(req.param.id))
-    const songs = await prisma.song.findUnique({
+    const playlists = await prisma.playlist.findUnique({
       where: {
         id: parseInt(req.params.id)
       }
     });
     res.json({
       ok: true,
-      data: songs,
+      data: playlists,
     });
   } catch (error) {
     res.json({
