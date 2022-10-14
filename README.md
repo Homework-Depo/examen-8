@@ -4,10 +4,10 @@ Alumnos:
 - Javier Aponte Cáceres
 - Jhanina Alarcón Regalado
 
-GET - /v1/songs/
-![GET - /v1/songs/](https://i.imgur.com/XgZIxMX.png)
 POST - /v1/songs/
 ![POST - /v1/songs/](https://i.imgur.com/qfxs2eH.png)
+GET - /v1/songs/
+![GET - /v1/songs/](https://i.imgur.com/XgZIxMX.png)
 GET - /v1/songs/:id
 ![GET - /v1/songs/:id](https://i.imgur.com/aeo7lv5.png)
 
